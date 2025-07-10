@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bsvk38-eta-deploy
+  name: Health_care-eta-deploy
   labels:
-    app: bsvk38-eta-deploy-lbl
+    app: Health_care-eta-deploy-lbl
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: bsvk38-eta-app
+      app: Health_care-eta-app
   template:
     metadata:
       labels:
-        app: bsvk38-eta-app
+        app: Health_care-eta-app
     spec:
       containers:
-      - name: bsvk38-eta-container
+      - name: Health_care-eta-container
         image: bsvk38/health-care-eta-app:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: bsvk38-eta-np-service
+  name: Health_care-eta-np-service
   labels:
-    app: bsvk38-eta-app
+    app: Health_care-eta-app
 spec:
   selector:
-    app: bsvk38-eta-deploy-lbl
+    app: Health_care-eta-deploy-lbl
 
   type: NodePort
   ports:
   - nodePort: 31030
-    port: 8080
-    targetPort: 8080
+    port: 8082
+    targetPort: 8081
