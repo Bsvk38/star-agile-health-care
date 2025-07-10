@@ -13,7 +13,9 @@ spec:
     metadata:
       labels:
         app: healthcare-eta-app
-    spec:
+   spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-node1
       containers:
       - name: healthcare-eta-container
         image: bsvk38/health-care-eta-app:latest
