@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: Health_care-eta-deploy
   labels:
-    app: Health_care-eta-deploy-lbl
+    app: Health_care-eta-app
 spec:
   replicas: 3
   selector:
@@ -28,7 +28,7 @@ metadata:
     app: Health_care-eta-app
 spec:
   selector:
-    app: Health_care-eta-deploy-lbl
+    app: Health_care-eta-app
 
   type: NodePort
   ports:
